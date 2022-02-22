@@ -11,7 +11,7 @@ apt-get update && apt-get upgrade
 sudo apt install raspberrypi-kernel-headers git libgmp3-dev gawk qpdf bison flex make autoconf libtool texinfo
 
 #clone git
-git clone https://github.com/DrSchottky/nexmon.git
+git clone https://github.com/moni11811/nexmon.git
 
 #go to dir
 cd ~/nexmon/
@@ -43,3 +43,4 @@ cd ~/nexmon/patches/bcm43436b0/9_88_4_65/nexmon/
 make
 make backup-firmware
 make install-firmware
+
