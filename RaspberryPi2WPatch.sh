@@ -44,3 +44,24 @@ make
 make backup-firmware
 make install-firmware
 
+#I dont think this is necessary as we only want the firmware from Nexmon but let me knw...
+#Install NextUtils
+#cd ~/nexmon/utilities/nexutil/
+#make && make install
+
+#Uninstall WPA_Supplicant
+#apt-get remove wpasupplicant
+
+#Connect to AP
+#nexutil -m0
+
+#make the RPI02W load the modified driver after reboot
+mv /lib/modules/5.10.63-v7+/kernel/drivers/net/wireless/broadcom/brcm80211/brcmfmac/brcmfmac.ko /lib/modules/5.10.63-v7+/kernel/drivers/net/wireless/broadcom/brcm80211/brcmfmac/brcmfmac.ko.orig
+cp ~/nexmon/patches/bcm43436b0/9_88_4_65/nexmon/brcmfmac_5.10.y-nexmon/brcmfmac.ko /lib/modules/5.10.63-v7+/kernel/drivers/net/wireless/broadcom/brcm80211/brcmfmac/brcmfmac.ko
+depmod -a
+
+#reboot
+reboot
+
+
+
