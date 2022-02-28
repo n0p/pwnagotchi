@@ -4,6 +4,11 @@
 #sudo pip3 uninstall numpy
 #sudo pip3 install numpy==1.20.2
 
+
+#Update PI Kernel to  5.10.63==Nexmon==DrSchottky
+rpi-update 64132d67d3e083076661628203a02d27bf13203c
+
+
 ##Updates
 #apt-get update && apt-get upgrade
 
