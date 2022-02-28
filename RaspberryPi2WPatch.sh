@@ -1,17 +1,17 @@
 #!/bin/bash
 
 #Working numpy #1045
-sudo pip3 uninstall numpy
-sudo pip3 install numpy==1.20.2
+#sudo pip3 uninstall numpy
+#sudo pip3 install numpy==1.20.2
 
 ##Updates
-apt-get update && apt-get upgrade
+#apt-get update && apt-get upgrade
 
 #Dependancies
 sudo apt install raspberrypi-kernel-headers git libgmp3-dev gawk qpdf bison flex make autoconf libtool texinfo
 
 #clone git
-git clone https://github.com/moni11811/nexmon.git
+git clone https://github.com/DrSchottky/nexmon.git
 
 #go to dir
 cd ~/nexmon/
