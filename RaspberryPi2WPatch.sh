@@ -54,7 +54,7 @@ cd ~/nexmon/
 #isl-0.10 install
 cd ~/nexmon/buildtools/isl-0.10 
 ./configure 
-make 
+make -j 4
 make install 
 ln -s /usr/local/lib/libisl.so /usr/lib/arm-linux-gnueabihf/libisl.so.10
 
@@ -63,26 +63,26 @@ ln -s /usr/local/lib/libisl.so /usr/lib/arm-linux-gnueabihf/libisl.so.10
 cd ~/nexmon/buildtools/mpfr-3.1.4 
 autoreconf -f -i
 ./configure
-make
+make -j 4
 make install
 ln -s /usr/local/lib/libmpfr.so /usr/lib/arm-linux-gnueabihf/libmpfr.so.4
 
 #Set up build env
 cd ~/nexmon
 source setup_env.sh
-make
+make -j 4
 
 
 #install rpi02w fw
 cd ~/nexmon/patches/bcm43436b0/9_88_4_65/nexmon/
-make
+make -j 4
 make backup-firmware
 make install-firmware
 
 #I dont think this is necessary as we only want the firmware from Nexmon but let me knw...
 #Install NextUtils
-#cd ~/nexmon/utilities/nexutil/
-#make && make install
+cd ~/nexmon/utilities/nexutil/
+make -j 4 && make install
 
 #Uninstall WPA_Supplicant
 #apt-get remove wpasupplicant
