@@ -72,6 +72,8 @@ cd ~/nexmon
 source setup_env.sh
 make -j 4
 
+wget https://archive.raspberrypi.org/debian/pool/main/r/raspberrypi-firmware/raspberrypi-kernel-headers_1.20210928-1_armhf.deb
+dpkg -i raspberrypi-kernel-headers_1.20210928-1_armhf.deb
 
 #install rpi02w fw
 cd ~/nexmon/patches/bcm43436b0/9_88_4_65/nexmon/
