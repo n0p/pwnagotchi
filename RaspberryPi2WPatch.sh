@@ -3,6 +3,36 @@
 #Working numpy #1045
 #sudo pip3 uninstall numpy
 #sudo pip3 install numpy==1.20.2
+systemctl stop pwnagotchi bettercap pwngrid-peer.service
+
+## From: https://github.com/isthisausername2/pwnagotchi_rpi_zero_2_fix/blob/main/pwn_rpi02w.sh
+
+if [ ! -e /etc/apt/preferences.d/kali.pref ];
+then
+	cat <<EOF >/etc/apt/preferences.d/kali.pref
+Package: *
+Pin: release n=kali-pi
+Pin-Priority: 999
+EOF
+
+fi
+
+apt --allow-releaseinfo-change update
+apt full-upgrade -y
+
+pip3 install --upgrade numpy
+
+
+# This is temporary, and gets us a working wifi driver, though without promiscuous monitor mode initially
+# We just want the 43436 driver; unless it already exists, and then future updates should handle it
+if [ ! -e /lib/firmware/brcm/brcmfmac43436-sdio.bin ]
+then
+	mkdir /lib/firmware/brcm/old
+	cp /lib/firmware/brcm/* /lib/firmware/brcm/old
+	apt install -y firmware-brcm80211
+	cp /lib/firmware/brcm/old/* /lib/firmware/brcm/
+fi
+
 
 
 #Update PI Kernel to  5.10.63==Nexmon==DrSchottky
